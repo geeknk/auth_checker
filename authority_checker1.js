@@ -1,6 +1,6 @@
 const fs = require("fs");
 const mysql = require("mysql2/promise");
-const { sequelize } = require("./sequelize");
+const { sequelize,testConnection, Domain, QueryTypes } = require("./sequelize");
 const { Builder, By } = require("selenium-webdriver");
 const chrome = require("selenium-webdriver/chrome");
 const axios = require("axios");
@@ -1631,11 +1631,21 @@ async function main() {
         console.log("Attempting to save the following data in the database:");
         console.log(df.toString());
         console.log(df.show());
+        console.log(df)
 
         try {
-          await df.to_sql("domains", sequelize, "append");
+          // Sync model with database
+
+          await testConnection();
+
+          await Domain.sync();
+
+          // Iterate through DataFrame and save each row to the database
+          for (let row of df.toCollection()) {
+              await Domain.create(row);
+          }
           console.log("Data saved successfully in the database");
-          for (let row of df.iterrows()) {
+          for (let row of df.toCollection()) {
             const availabilityInfo = row.available
               ? `, Available: ${row.available}`
               : "";

@@ -1,0 +1,25 @@
+{
+    "dpachecker": {
+        "email": "expirateddomainsrikseo@gmail.com",
+        "password": "$hk11X87OwEQSJx"
+    },
+    "noxtools": {
+        "user": "yomismo",
+        "pass": "$0y^RRgajNA%RUB",
+        "google_results": 10
+    },
+    "db": {
+        "Database name": "u211633219_expirateddom01",
+        "Database user": "u211633219_expirated01",
+        "Database pass": "Qp5:O!oVt",
+        "hostname": "193.203.168.34",
+        "port": "3306"
+    },
+    "DA Check": 40,
+    "PA Check": 40,
+    "captcha_api": "1f41dfcd6093bc23cc9888ebd8eb5825",
+    "proxy_api": "vm0vhfhiphvw6rk6gjk8",
+    "google_delay": 30,
+    "organic_traffic_threshold": 1
+    
+}
